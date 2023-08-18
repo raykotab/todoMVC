@@ -7,34 +7,35 @@
 <body>
     <h1 class="modern">To Do List</h1>
     
+    <div>
     <!-- Form for creating new To Do items -->
-    <form method="POST" action="/create">
-        <label for="title">Title:</label>
-        <input class="mac" type="text" id="title" name="title"><br>
-        <label for="description">Description:</label>
-        <input class="mac" type="text" id="description" name="description"><br>
-        <button class="modern" type="submit">Create</button>
-    </form>
-    
-    <ul>
+        <form method="POST" action="/create">
+            <label for="title">Title:</label>
+            <input class="mac" type="text" id="title" name="title"><br>
+            <label for="description">Description:</label>
+            <input class="mac" type="text" id="description" name="description"><br>
+            <button class="modern" type="submit">Create</button>
+        </form>
+    </div>
+    <div>
+        <ul>
         {{ range . }}
-        <li>
-            
+            <li>
             {{ .Title }} - {{ .Description }}
             <!-- Mark as complete form -->
-            <form method="POST" action="/toggle-complete">
-                <input class="mac" type="hidden" name="id" value="{{ .Id }}">
-                <input class="mac" type="hidden" name="completed" value="{{ not .Completed }}">
-                <button type="submit" class="modern">{{ if .Completed }}Mark Incomplete{{ else }}Mark Complete{{ end }}</button>
-            </form>
-            <!-- Delete form -->
-            <form method="POST" action="/delete">
-                <input type="hidden" name="id" value="{{ .Id }}">
-                <button type="submit" class="modern">Delete</button>
-            </form>
-        </li>
-        {{ end }}
-        <script> console.log("hola") </script>
-    </ul>
+                <form method="POST" action="/toggle-complete">
+                    <input class="mac" type="hidden" name="id" value="{{ .Id }}">
+                    <input class="mac" type="hidden" name="completed" value="{{ not .Completed }}">
+                    <button type="submit" class="modern">{{ if .Completed }}Mark Incomplete{{ else }}Mark Complete{{ end }}</button>
+                </form>
+                <!-- Delete form -->
+                <form method="POST" action="/delete">
+                    <input type="hidden" name="id" value="{{ .Id }}">
+                    <button type="submit" class="modern">Delete</button>
+                </form>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
 </body>
 </html>

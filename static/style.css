@@ -1,5 +1,6 @@
 body {
   background-color: lightblue;
+  font-family: verdana;
 }
 
 h1 {
@@ -8,7 +9,16 @@ h1 {
 }
 
 * {
-  align-content: center;
+  text-align: center;
+}
+
+div {
+  align-self: center;
+}
+
+input {
+  display: inline;
+  align-self: center;
 }
 
 p {
@@ -77,7 +87,7 @@ p {
 }
 
 .mac {
-  display: block;
+  /* display: block; */
   border: none;
   border-radius: 20px;
   padding: 5px 8px;
