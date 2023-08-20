@@ -1,6 +1,5 @@
 package models
 
-import "fmt"
 
 type ToDo struct {
 	Id	int
@@ -13,8 +12,6 @@ var todos []ToDo
 var todoiIdCounter int = 1
 
 func CreateTodo(title, description string) ToDo {
-	fmt.Println("title, description")
-	fmt.Println(title, description)
 	todo := ToDo{
 		Id: todoiIdCounter,
 		Title: title,
@@ -23,7 +20,6 @@ func CreateTodo(title, description string) ToDo {
 	}
 	todos = append(todos, todo)
 	todoiIdCounter++
-	fmt.Println(todo.Title)
 	return todo
 }
 
@@ -34,7 +30,6 @@ func GetTodos() []ToDo {
 func GetTodoById(id int) *ToDo {
 	for i, todo := range todos {
 		if todo.Id == id {
-			fmt.Println(todos[i])
 			return &todos[i]
 		}
 	}
@@ -45,7 +40,6 @@ func UpdateTodoStatus(id int, completed bool) {
 	for i := range todos {
 		if todos[i].Id == id{
 			todos[i].Completed = completed
-			fmt.Println(todos[i].Description)
 			return
 		}
 	}
